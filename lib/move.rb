@@ -6,18 +6,13 @@ def display_board(board)
   puts " #{board[6]} | #{board[7]} | #{board[8]} "
 end
 
-def move(board, index, type="X")
-  arr = board
-  arr[index.to_i-1] = type
-  arr
+def input_to_index(user_input)
+  new_user_input = user_input.to_i
+  new_user_input -= 1
+  return new_user_input
 end
 
-require_relative '../lib/move.rb'
-
-puts "Welcome to Tic Tac Toe!"
-board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
-puts "Where would you like to go?"
-input = gets.strip
-index = input_to_index(input)
-move(board, index)
-display_board(board)
+def move(board, index, character = "X")
+  board[index] = character
+  return board
+end

@@ -11,21 +11,13 @@ def move(board, index, type="X")
   arr[index.to_i-1] = type
   arr
 end
-ruby
-def number_adder(n)
-  n += 10
-end
 
-def array_adder(a)
-  a << "new thing at the end of the array"
-end
+require_relative '../lib/move.rb'
 
-x = 10
-puts "Before call #{x}"
-number_adder(x)
-puts "After call: #{x}: Holy moly, unchanged!"
-
-z = [1, 'hi', "Byron"]
-puts "Before call #{z}"
-array_adder(z)
-puts "After call #{z}: Holy moly, *changed*!"
+puts "Welcome to Tic Tac Toe!"
+board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+puts "Where would you like to go?"
+input = gets.strip
+index = input_to_index(input)
+move(board, index)
+display_board(board)
